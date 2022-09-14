@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Weather.css';
 import WeatherInfo from './WeatherInfo';
+import ReactLoading from 'react-loading';
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -63,6 +64,14 @@ export default function Weather(props) {
     );
   } else {
     searchCity();
-    return <p>Loading...</p>;
+    return (
+      <ReactLoading
+        type='spokes'
+        color='#0B5ED7'
+        height={'15%'}
+        width={'15%'}
+        className='loading'
+      />
+    );
   }
 }
